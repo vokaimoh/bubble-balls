@@ -1,0 +1,46 @@
+go.property("color", vmath.vector4())
+
+local m_game = require "bs.lua.game"
+
+function init(self)
+	go.set("#sprite-visual", "tint", self.color)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == m_game.fade_in then
+		go.set("#sprite-visual", "tint.w", 0)
+		go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR, message.duration)
+	elseif message_id == m_game.fade_out then
+		go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR, message.duration)
+	elseif message_id == m_game.scale_in then
+		go.set("#sprite-visual", "scale", m_game.vector3_zero)
+		go.animate("#sprite-visual", "scale", go.PLAYBACK_ONCE_FORWARD, m_game.vector3_unit, go.EASING_LINEAR, message.duration)
+	elseif message_id == m_game.scale_out then
+		go.animate("#sprite-visual", "scale", go.PLAYBACK_ONCE_FORWARD, m_game.vector3_zero, go.EASING_LINEAR, message.duration)
+	elseif message_id == m_game.delete then
+		timer.delay(message.duration, false, function()
+			go.delete(".")
+		end)
+	elseif message_id == m_game.hide then
+		go.cancel_animations("#sprite-visual", "tint.w")
+		local tint = go.get("#sprite-visual", "tint.w")
+		if tint < 1 then
+			local add = (1 - tint) / 2
+			local duration = message.duration / (1 / add)
+			timer.delay(duration, false, function()
+				go.cancel_animations("#sprite-visual", "tint.w")
+				go.set("#sprite-visual", "tint.w", tint + add)
+				go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR, message.duration - duration)
+			end)
+			go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, tint + add, go.EASING_LINEAR, duration)
+		else
+			go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, 0, go.EASING_LINEAR, message.duration)
+		end
+	elseif message_id == hash("link") then
+		go.animate("#sprite-visual", "scale", go.PLAYBACK_ONCE_FORWARD, vmath.vector3(0.75, 0.75, 1), go.EASING_LINEAR, message.duration)
+		go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, 0.75, go.EASING_LINEAR, message.duration)
+	elseif message_id == hash("unlink") then
+		go.animate("#sprite-visual", "scale", go.PLAYBACK_ONCE_FORWARD, vmath.vector3(1, 1, 1), go.EASING_LINEAR, message.duration)
+		go.animate("#sprite-visual", "tint.w", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR, message.duration)
+	end
+end

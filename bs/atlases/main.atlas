@@ -1,0 +1,28 @@
+images {
+  image: "/bs/assets/images/game/dot.png"
+}
+images {
+  image: "/bs/assets/images/gui/back.png"
+}
+images {
+  image: "/bs/assets/images/gui/help.png"
+}
+images {
+  image: "/bs/assets/images/gui/play.png"
+}
+images {
+  image: "/bs/assets/images/gui/restart.png"
+}
+images {
+  image: "/bs/assets/images/gui/settings.png"
+}
+images {
+  image: "/bs/assets/images/gui/square.png"
+}
+images {
+  image: "/bs/assets/images/particle/large.png"
+}
+images {
+  image: "/bs/assets/images/particle/rounded.png"
+}
+extrude_borders: 2

@@ -1,0 +1,114 @@
+{
+  :bundle {
+    :build-report false
+    :contentless false
+    :debug-symbols false
+    :html5 {
+      :architecture {
+        :js-web true
+        :wasm-web true
+      }
+    }
+    :liveupdate false
+    :output-directory "C:\\Users\\vkmhs\\Desktop\\bubble"
+    :texture-compression "enabled"
+    :variant "release"
+  }
+  :code {
+    :find {
+      :term "language"
+    }
+  }
+  :workflow {
+    :recent-files [
+      [
+        "/bs/atlases/game.atlas"
+        :scene
+      ]
+      [
+        "/bs/atlases/gui.atlas"
+        :scene
+      ]
+      [
+        "/bs/atlases/particle.atlas"
+        :scene
+      ]
+      [
+        "/game.project"
+        :cljfx-form-view
+      ]
+      [
+        "/bs/main.appmanifest"
+        :code
+      ]
+      [
+        "/bs/atlases/main.atlas"
+        :scene
+      ]
+      [
+        "/bs/go/dot.go"
+        :scene
+      ]
+      [
+        "/bs/particles/dust.particlefx"
+        :scene
+      ]
+      [
+        "/bs/collections/game.collection"
+        :scene
+      ]
+      [
+        "/bs/collections/help.collection"
+        :scene
+      ]
+      [
+        "/bs/collections/main.collection"
+        :scene
+      ]
+      [
+        "/bs/lua/game.lua"
+        :code
+      ]
+      [
+        "/bs/gui/settings.gui_script"
+        :code
+      ]
+      [
+        "/bs/gui/game.gui"
+        :scene
+      ]
+      [
+        "/bs/gui/game.gui_script"
+        :code
+      ]
+      [
+        "/bs/gui/help.gui_script"
+        :code
+      ]
+      [
+        "/bs/gui/over.gui_script"
+        :code
+      ]
+      [
+        "/bs/gui/start.gui_script"
+        :code
+      ]
+      [
+        "/bs/gui/start.gui"
+        :scene
+      ]
+      [
+        "/bs/gui/settings.gui"
+        :scene
+      ]
+      [
+        "/bs/gui/over.gui"
+        :scene
+      ]
+      [
+        "/bs/gui/help.gui"
+        :scene
+      ]
+    ]
+  }
+}

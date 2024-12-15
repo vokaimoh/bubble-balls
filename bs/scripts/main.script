@@ -1,0 +1,29 @@
+local m_game = require "bs.lua.game"
+
+function init(self)
+	m_game.random_init()
+	particlefx.play("#dust")
+	self.collection_id = collectionfactory.create("#collectionfactory-start")
+	--profiler.enable_ui(true)
+end
+
+local function collection_replace(self, name)
+	go.delete(self.collection_id)
+	timer.delay(m_game.duration_switch, false, function()
+		self.collection_id = collectionfactory.create("#collectionfactory-" .. name)
+	end)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == m_game.start then
+		collection_replace(self, "start")
+	elseif message_id == m_game.game then
+		collection_replace(self, "game")
+	elseif message_id == m_game.over then
+		collection_replace(self, "over")
+	elseif message_id == m_game.help then
+		collection_replace(self, "help")
+	elseif message_id == m_game.settings then
+		collection_replace(self, "settings")
+	end
+end

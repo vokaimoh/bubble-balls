@@ -1,0 +1,105 @@
+script: "/bs/gui/game.gui_script"
+fonts {
+  name: "comfortaa-light-60"
+  font: "/bs/fonts/comfortaa-light-60.font"
+}
+fonts {
+  name: "comfortaa-light-32"
+  font: "/bs/fonts/comfortaa-light-32.font"
+}
+textures {
+  name: "main"
+  texture: "/bs/atlases/main.atlas"
+}
+nodes {
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 270.0
+    y: 896.0
+  }
+  size {
+    x: 150.0
+    y: 60.0
+  }
+  type: TYPE_TEXT
+  text: "0"
+  font: "comfortaa-light-60"
+  id: "counter-score"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 496.0
+    y: 896.0
+  }
+  size {
+    x: 150.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "+ 50"
+  font: "comfortaa-light-32"
+  id: "counter-preview"
+  pivot: PIVOT_E
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 205.0
+    y: 35.0
+  }
+  type: TYPE_BOX
+  texture: "main/back"
+  id: "button-back"
+  pivot: PIVOT_S
+  parent: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 335.0
+    y: 35.0
+  }
+  type: TYPE_BOX
+  texture: "main/restart"
+  id: "button-restart"
+  pivot: PIVOT_S
+  parent: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+material: "/bs/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

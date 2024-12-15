@@ -1,0 +1,118 @@
+script: "/bs/gui/over.gui_script"
+fonts {
+  name: "comfortaa-light-60"
+  font: "/bs/fonts/comfortaa-light-60.font"
+}
+fonts {
+  name: "comfortaa-light-32"
+  font: "/bs/fonts/comfortaa-light-32.font"
+}
+textures {
+  name: "main"
+  texture: "/bs/atlases/main.atlas"
+}
+nodes {
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 270.0
+    y: 930.0
+  }
+  size {
+    x: 500.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "GAME OVER"
+  font: "comfortaa-light-60"
+  id: "title"
+  pivot: PIVOT_N
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 270.0
+    y: 480.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "0"
+  font: "comfortaa-light-60"
+  id: "counter-last"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 270.0
+    y: 290.0
+  }
+  size {
+    x: 400.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "NEW RECORD"
+  font: "comfortaa-light-32"
+  id: "label-best"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 270.0
+    y: 35.0
+  }
+  type: TYPE_BOX
+  texture: "main/restart"
+  id: "button-restart"
+  pivot: PIVOT_S
+  parent: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+material: "/bs/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

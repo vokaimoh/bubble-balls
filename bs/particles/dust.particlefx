@@ -1,0 +1,330 @@
+emitters {
+  id: "emitter-large"
+  mode: PLAY_MODE_LOOP
+  duration: 5.0
+  space: EMISSION_SPACE_WORLD
+  tile_source: "/bs/atlases/main.atlas"
+  animation: "large"
+  material: "/bs/materials/particlefx.material"
+  blend_mode: BLEND_MODE_ADD
+  max_particle_count: 128
+  type: EMITTER_TYPE_BOX
+  properties {
+    key: EMITTER_KEY_SPAWN_RATE
+    points {
+      y: 2.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_SIZE_X
+    points {
+      y: 1920.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_SIZE_Y
+    points {
+      y: 1080.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_LIFE_TIME
+    points {
+      y: 20.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_SIZE
+    points {
+      y: 75.0
+    }
+    spread: 45.0
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_RED
+    points {
+      y: 1.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_GREEN
+    points {
+      y: 1.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_BLUE
+    points {
+      y: 1.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_ALPHA
+    points {
+      y: 0.12
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_ROTATION
+    points {
+      y: 0.0
+    }
+    spread: 180.0
+  }
+  particle_properties {
+    key: PARTICLE_KEY_SCALE
+    points {
+      y: 0.0
+      t_x: 0.25
+      t_y: 1.0
+    }
+    points {
+      x: 1.0
+      y: 0.0
+      t_x: 0.25
+      t_y: -1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_RED
+    points {
+      y: 1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_GREEN
+    points {
+      y: 1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_BLUE
+    points {
+      y: 1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_ALPHA
+    points {
+      y: 0.0
+      t_x: 0.25
+      t_y: 1.0
+    }
+    points {
+      x: 1.0
+      y: 0.0
+      t_x: 0.25
+      t_y: -1.0
+    }
+    points {
+      x: 1.0
+      y: 0.0072254334
+      t_x: 0.4737472
+      t_y: -0.8806609
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_ANGULAR_VELOCITY
+    points {
+      y: 1.0
+    }
+  }
+  modifiers {
+    type: MODIFIER_TYPE_RADIAL
+    properties {
+      key: MODIFIER_KEY_MAGNITUDE
+      points {
+        y: 0.0
+      }
+      spread: 10.0
+    }
+    properties {
+      key: MODIFIER_KEY_MAX_DISTANCE
+      points {
+        y: 1000.0
+      }
+    }
+  }
+  modifiers {
+    type: MODIFIER_TYPE_VORTEX
+    properties {
+      key: MODIFIER_KEY_MAGNITUDE
+      points {
+        y: 0.0
+      }
+      spread: 5.0
+    }
+    properties {
+      key: MODIFIER_KEY_MAX_DISTANCE
+      points {
+        y: 1000.0
+      }
+    }
+  }
+  start_offset: 10.0
+}
+emitters {
+  id: "emitter-rounded"
+  mode: PLAY_MODE_LOOP
+  duration: 5.0
+  space: EMISSION_SPACE_WORLD
+  tile_source: "/bs/atlases/main.atlas"
+  animation: "rounded"
+  material: "/bs/materials/particlefx.material"
+  blend_mode: BLEND_MODE_ADD
+  max_particle_count: 128
+  type: EMITTER_TYPE_BOX
+  properties {
+    key: EMITTER_KEY_SPAWN_RATE
+    points {
+      y: 8.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_SIZE_X
+    points {
+      y: 1920.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_SIZE_Y
+    points {
+      y: 1080.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_LIFE_TIME
+    points {
+      y: 5.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_SIZE
+    points {
+      y: 15.0
+    }
+    spread: 3.0
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_RED
+    points {
+      y: 1.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_GREEN
+    points {
+      y: 1.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_BLUE
+    points {
+      y: 1.0
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_ALPHA
+    points {
+      y: 0.12
+    }
+  }
+  properties {
+    key: EMITTER_KEY_PARTICLE_ROTATION
+    points {
+      y: 0.0
+    }
+    spread: 180.0
+  }
+  particle_properties {
+    key: PARTICLE_KEY_SCALE
+    points {
+      y: 0.0
+      t_x: 0.25
+      t_y: 1.0
+    }
+    points {
+      x: 1.0
+      y: 0.0
+      t_x: 0.25
+      t_y: -1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_RED
+    points {
+      y: 1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_GREEN
+    points {
+      y: 1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_BLUE
+    points {
+      y: 1.0
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_ALPHA
+    points {
+      y: 0.0
+      t_x: 0.25
+      t_y: 1.0
+    }
+    points {
+      x: 1.0
+      y: 0.0
+      t_x: 0.25
+      t_y: -1.0
+    }
+    points {
+      x: 1.0
+      y: 0.0072254334
+      t_x: 0.4737472
+      t_y: -0.8806609
+    }
+  }
+  particle_properties {
+    key: PARTICLE_KEY_ANGULAR_VELOCITY
+    points {
+      y: 1.0
+    }
+  }
+  modifiers {
+    type: MODIFIER_TYPE_RADIAL
+    properties {
+      key: MODIFIER_KEY_MAGNITUDE
+      points {
+        y: 0.0
+      }
+      spread: 10.0
+    }
+    properties {
+      key: MODIFIER_KEY_MAX_DISTANCE
+      points {
+        y: 1000.0
+      }
+    }
+  }
+  modifiers {
+    type: MODIFIER_TYPE_VORTEX
+    properties {
+      key: MODIFIER_KEY_MAGNITUDE
+      points {
+        y: 0.0
+      }
+      spread: 5.0
+    }
+    properties {
+      key: MODIFIER_KEY_MAX_DISTANCE
+      points {
+        y: 1000.0
+      }
+    }
+  }
+  start_offset: 2.5
+}

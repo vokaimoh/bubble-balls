@@ -1,0 +1,189 @@
+script: "/bs/gui/settings.gui_script"
+fonts {
+  name: "comfortaa-light-60"
+  font: "/bs/fonts/comfortaa-light-60.font"
+}
+fonts {
+  name: "comfortaa-light-22"
+  font: "/bs/fonts/comfortaa-light-22.font"
+}
+textures {
+  name: "main"
+  texture: "/bs/atlases/main.atlas"
+}
+nodes {
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 270.0
+    y: 930.0
+  }
+  size {
+    x: 500.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "SETTINGS"
+  font: "comfortaa-light-60"
+  id: "title"
+  pivot: PIVOT_N
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 100.0
+    y: 545.0
+  }
+  size {
+    x: 165.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "GAME SOUNDS"
+  font: "comfortaa-light-22"
+  id: "label-volume"
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 440.0
+    y: 545.0
+  }
+  size {
+    x: 165.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "50 %"
+  font: "comfortaa-light-22"
+  id: "counter-volume"
+  pivot: PIVOT_E
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 440.0
+    y: 480.0
+  }
+  size {
+    x: 150.0
+    y: 15.0
+  }
+  color {
+    x: 0.7019608
+    y: 0.7019608
+    z: 0.7019608
+  }
+  type: TYPE_BOX
+  texture: "main/square"
+  id: "slider-background"
+  xanchor: XANCHOR_LEFT
+  pivot: PIVOT_E
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 100.0
+    y: 480.0
+  }
+  size {
+    x: 150.0
+    y: 15.0
+  }
+  type: TYPE_BOX
+  texture: "main/square"
+  id: "slider-fill"
+  xanchor: XANCHOR_LEFT
+  pivot: PIVOT_W
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 270.0
+    y: 480.0
+  }
+  size {
+    x: 340.0
+    y: 45.0
+  }
+  type: TYPE_BOX
+  id: "slider-area"
+  parent: "box"
+  inherit_alpha: true
+  visible: false
+}
+nodes {
+  position {
+    x: 270.0
+    y: 480.0
+  }
+  size {
+    x: 40.0
+    y: 45.0
+  }
+  type: TYPE_BOX
+  texture: "main/square"
+  id: "slider-handle"
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 270.0
+    y: 35.0
+  }
+  type: TYPE_BOX
+  texture: "main/back"
+  id: "button-back"
+  pivot: PIVOT_S
+  parent: "box"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+material: "/bs/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

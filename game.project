@@ -1,0 +1,31 @@
+[bootstrap]
+main_collection = /bs/collections/main.collectionc
+render = /bs/render/game.renderc
+
+[script]
+shared_state = 1
+
+[display]
+width = 540
+height = 960
+high_dpi = 1
+
+[android]
+input_method = HiddenInputField
+
+[project]
+title = bubble-balls
+version = 0.0.0.3
+
+[html5]
+show_fullscreen_button = 0
+show_made_with_defold = 0
+show_console_banner = 0
+scale_mode = stretch
+heap_size = 32
+retry_count = 1200
+retry_time = 0.1
+
+[native_extension]
+app_manifest = /bs/main.appmanifest
+

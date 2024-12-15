@@ -1,0 +1,81 @@
+local m_game = require "bs.lua.game"
+
+local function slider_change(fill, background, handle, handle_position)
+	local size = gui.get_size(background)
+	size.x = handle_position.x - 120
+	gui.set_size(fill, size)
+	size.x = 300 - size.x
+	gui.set_size(background, size)
+	gui.set_position(handle, handle_position)
+end
+
+function init(self)
+	self.box = gui.get_node("box")
+	self.button_back = gui.get_node("button-back")
+	self.slider_handle = gui.get_node("slider-handle")
+	self.slider_background = gui.get_node("slider-background")
+	self.slider_fill = gui.get_node("slider-fill")
+	self.slider_area = gui.get_node("slider-area")
+	self.counter_volume = gui.get_node("counter-volume")
+	self.slider_handle_position = gui.get_position(self.slider_handle)
+	self.slider_handle_position.x = m_game.volume * 300 + 120
+	self.diff_x = 0
+	gui.set_text(self.counter_volume, math.floor(m_game.volume * 100) .. " %")
+	slider_change(self.slider_fill, self.slider_background, self.slider_handle, self.slider_handle_position)
+	m_game.gui_init()
+end
+
+local function clamp(var, min, max)
+	if var < min then return min
+	elseif var > max then return max
+	else return var end
+end
+
+local function slider_update(self)
+	if self.cursor_position.x - self.diff_x ~= self.slider_handle_position.x then
+		self.slider_handle_position.x = clamp(self.cursor_position.x - self.diff_x, 120, 420)
+		slider_change(self.slider_fill, self.slider_background, self.slider_handle, self.slider_handle_position)
+		m_game.volume = (self.slider_handle_position.x - 120) / 300
+		gui.set_text(self.counter_volume, math.floor(m_game.volume * 100) .. " %")
+	end
+end
+
+function update(self, dt)
+	if self.pressed ~= nil and self.cursor_position ~= nil then
+		slider_update(self)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	m_game.gui_message(self.box, message_id, message)
+end
+
+local function slider_pressed_init(self, x, y)
+	self.cursor_position = m_game.screen_to_world(vmath.vector3(x, y, 0))
+	self.diff_x = self.cursor_position.x - self.slider_handle_position.x
+	self.pressed = true
+	gui.set_color(self.slider_handle, m_game.vector4_pressed)
+end
+
+function on_input(self, action_id, action)
+	if action_id == m_game.touch then
+		if action.pressed then
+			if gui.pick_node(self.button_back, action.x, action.y) then
+				m_game.gui_switch("start")
+			elseif gui.pick_node(self.slider_handle, action.x, action.y) then
+				slider_pressed_init(self, action.x, action.y)
+			elseif gui.pick_node(self.slider_area, action.x, action.y) then
+				slider_pressed_init(self, action.x, action.y)
+				self.diff_x = 0
+				slider_update(self)
+			end
+		elseif action.released and self.cursor_position ~= nil and self.pressed ~= nil then
+			self.pressed = nil
+			self.cursor_position = nil
+			gui.set_color(self.slider_handle, m_game.vector4_unit)
+			m_game.save_volume()
+		end
+	elseif not action_id then
+		self.cursor_position = m_game.screen_to_world(vmath.vector3(action.x, action.y, 0))
+	end
+end
